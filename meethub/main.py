@@ -15,10 +15,19 @@
 # limitations under the License.
 #
 import webapp2
+import jinja2
+
+env = jinja
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
+
+class SignInHandler(webapp2.RequestHandler):
+    def get(self):
+        self.request.get('username')
+        self.request.get('password')
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
