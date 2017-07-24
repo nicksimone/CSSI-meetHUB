@@ -1,4 +1,12 @@
 body {
   background-image: url("home.jpg");
   background-size: 100%;
+  text-align: center;
+}
+
+#main{
+  color: black;
+  text-align: center;
+
+
 }
