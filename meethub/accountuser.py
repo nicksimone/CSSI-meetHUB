@@ -1,9 +1,9 @@
 from google.appengine.ext import ndb
 
-class Account(ndb.Model()):
-    account_username = ndb.StringProperty()
-    account_password = ndb.StringProperty()
+class Account(ndb.Model):
+    first_name = ndb.StringProperty()
+    last_name = ndb.StringProperty()
 
-class Post(ndb.Model()):
+class Activity(ndb.Model):
     # title = ndb.StringProperty()
-    content = ndb.StringProperty()
+    name = ndb.StringProperty()
