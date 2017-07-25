@@ -1,43 +1,41 @@
+body{
+  background-image: url(blue.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #display {
   display: flex;
   flex-direction: row;
 }
 
-
-
 #topbar {
   border: 3px solid black;
   text-align: center;
-
 }
 
 #center{
   display: flex;
   flex-direction: row;
   height:100%;
-
 }
 
 #leftsidebar {
-text-align: center;
-border: double;
-width: 468px;
-height:500px;
-
-
+  text-align: center;
+  border: double;
+  width: 468px;
+  height: 500px;
 }
-
 
 #middlebar {
   text-align: center;
   border: double;
   width: 468px;
-
 }
 
 #rightsidebar {
   text-align: center;
   border: double;
   width: 468px;
-
 }
