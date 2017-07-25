@@ -79,10 +79,10 @@ class CreatePost(webapp2.RequestHandler):
         self.response.write(main_template.render())
     def post(self):
         # text_input = self.request.get('activity_name')
-        new_post = Activity(name = 'movies')
+        new_post = Activity(name = self.request.get('activity_name'))
         new_post.put()
-        # posts_template = env.get_template('posts.html')
-        # self.response.write(posts_template.render(Posts))
+        posts_template = env.get_template('mainhub.html')
+        self.response.write(posts_template.render(Activity))
 
 
 app = webapp2.WSGIApplication([
