@@ -1,3 +1,10 @@
+body{
+  background-image: url(blue.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #display {
   display: flex;
   flex-direction: row;
