@@ -6,14 +6,17 @@
 
 #center{
   display: flex;
+  flex-direction: row;
+  height:100%;
 
 }
 
 #leftsidebar {
 text-align: center;
 border: double;
-width: 400px;
-height: 70%;
+width: 468px;
+height:500px;
+
 
 }
 
@@ -21,11 +24,13 @@ height: 70%;
 #middlebar {
   text-align: center;
   border: double;
-  width: 400px;
+  width: 468px;
+
 }
 
 #rightsidebar {
   text-align: center;
   border: double;
-  width: 400px;
+  width: 468px;
+
 }
