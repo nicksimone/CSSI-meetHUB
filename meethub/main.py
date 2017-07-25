@@ -43,11 +43,11 @@ class SignInHandler(webapp2.RequestHandler):
         self.response.write(main_template.render())
         self.request.get('account_username')
         self.request.get('account_password')
-#class SignUpHandler(webapp2.RequestHandler):
-#    def get(self):
+# class SignUpHandler(webapp2.RequestHandler):
+#     def get(self):
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
-    ('/signin', SignInHandler),
+    # ('/signin', SignInHandler),
     #('/', SignUpHandler),
 ], debug=True)
