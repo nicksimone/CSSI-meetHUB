@@ -1,0 +1,43 @@
+#display {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+#topbar {
+  border: 3px solid black;
+  text-align: center;
+
+}
+
+#center{
+  display: flex;
+  flex-direction: row;
+  height:100%;
+
+}
+
+#leftsidebar {
+text-align: center;
+border: double;
+width: 468px;
+height:500px;
+
+
+}
+
+
+#middlebar {
+  text-align: center;
+  border: double;
+  width: 468px;
+
+}
+
+#rightsidebar {
+  text-align: center;
+  border: double;
+  width: 468px;
+
+}
