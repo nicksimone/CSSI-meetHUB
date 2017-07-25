@@ -4,16 +4,27 @@ body {
   text-align: center;
 }
 
-#main{
+#main1{
   color: white;
   text-align: center;
 }
 
+
+h1 {
+  color: white;
+}
+
 .signinbox {
   margin: 30px;
+<<<<<<< HEAD
   border: 3px solid black;
   margin-top: 9%;
 
+=======
+  border: 3px solid white;
+  background-color: black;
+  margin-top: 9%;
+>>>>>>> bdf2f6278ba2671b1e76de44f3ae4f1e9ed4dd6c
 }
 
 .signinbox h1 {
