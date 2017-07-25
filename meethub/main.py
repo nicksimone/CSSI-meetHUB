@@ -16,19 +16,20 @@
 #
 import webapp2
 import jinja2
+import ndb
 
-env = jinja
-
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
+env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
 class SignInHandler(webapp2.RequestHandler):
     def get(self):
-        self.request.get('username')
-        self.request.get('password')
-
+        main_template = env.get_template('index.html')
+        self.response.write(main_template.render())
+        self.request.get('account_username')
+        self.request.get('account_password')
+#class SignUpHandler(webapp2.RequestHandler):
+#    def get(self):
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', SignInHandler),
+    #('/', SignUpHandler),
 ], debug=True)
