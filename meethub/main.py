@@ -7,7 +7,11 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 env2 = jinja2.Environment(loader=jinja2.FileSystemLoader('static_files'))
 
 from google.appengine.api import users
+<<<<<<< HEAD
 from accountuser import Post
+=======
+from accountuser import Activity
+>>>>>>> 4e734977f1d5b94bc8fa52b148ded844748e251a
 from accountuser import CssiUser
 
 class MainHandler(webapp2.RequestHandler):
@@ -89,6 +93,6 @@ class CreatePost(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/createpost', CreatePost),
-    ('/signin', SignInHandler),
+    # ('/signin', SignInHandler),
     #('/', SignUpHandler),
 ], debug=True)
