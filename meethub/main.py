@@ -64,14 +64,6 @@ class MainHandler(webapp2.RequestHandler):
             cssi_user.first_name)
 
 
-class SignInHandler(webapp2.RequestHandler):
-    def get(self):
-        main_template = env.get_template('index.html')
-        self.response.write(main_template.render())
-        self.request.get('account_username')
-        self.request.get('account_password')
-
-
 
 class CreatePost(webapp2.RequestHandler):
     def get(self):
@@ -88,6 +80,5 @@ class CreatePost(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/createpost', CreatePost),
-    # ('/signin', SignInHandler),
     #('/', SignUpHandler),
 ], debug=True)
