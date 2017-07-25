@@ -20,7 +20,7 @@ class MainHandler(webapp2.RequestHandler):
             # We could also do a standard query, but ID is special and it
             # has a special method to retrieve entries using it.
             cssi_user = CssiUser.get_by_id(user.user_id())
-            signout_link_html = '<a href="%s">sign out</a>' % (
+            signout_link_html = '<a href="%s">Sign Out</a>' % (
                 users.create_logout_url('/'))
             # If the user has previously been to our site, we greet them!
             if cssi_user:
