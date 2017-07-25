@@ -7,17 +7,32 @@
 
 #topbar {
   border: 3px solid black;
+  text-align: center;
+
+}
+
+#center{
+  display: flex;
+
 }
 
 #leftsidebar {
-  border: 3px solid black;
+text-align: center;
+border: double;
+width: 400px;
+height: 70%;
+
 }
 
 
 #middlebar {
-  border: 3px solid black;
+  text-align: center;
+  border: double;
+  width: 400px;
 }
 
 #rightsidebar {
-  border: 3px solid black;
+  text-align: center;
+  border: double;
+  width: 400px;
 }

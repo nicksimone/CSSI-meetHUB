@@ -46,6 +46,9 @@ class SignInHandler(webapp2.RequestHandler):
 # class SignUpHandler(webapp2.RequestHandler):
 #     def get(self):
 
+class CreatePost(webapp2.RequestHandler):
+    def get(self):
+
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     # ('/signin', SignInHandler),

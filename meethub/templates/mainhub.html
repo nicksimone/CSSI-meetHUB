@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="mainhub.js"></script>
     <link rel="stylesheet" href="mainhub.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="mainhub.js"></script>
     <title>MainHub</title>
     <meta charset="utf-8">
   </head>
   <body>
+    <div id="header">
     <div id="topbar">
       <h1>meetHUB</h1>
     </div>
-    <div id="display">
-      <div id="leftsidebar">
-        <h3>Activities</h3>
+    <div id="center">
+    <div id="leftsidebar">
+      <h3>Activities</h3>
+    </div>
+    <div id="middlebar">
+      <h3>Posts</h3>
+      <div id="posts">
       </div>
-      <div id="middlebar">
-        <h3>Posts</h3>
-      </div>
-      <div id="rightsidebar">
-        <h3>Friends</h3>
-      </div>
+      <form method="post" action ="">
+      <textarea id="name_box"></textarea>
+      <button id = "button_ok">Submit</button>
+      <div id = "text_display"></div>
+    </div>
+    <div id="rightsidebar">
+      <h3>Friends</h3>
+    </div>
     </div>
   </body>
 </html>
