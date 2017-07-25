@@ -22,6 +22,7 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 env2 = jinja2.Environment(loader=jinja2.FileSystemLoader('static_files'))
 
 from google.appengine.api import users
+from accountuser import Post
 import webapp2
 
 class MainPage(webapp2.RequestHandler):
@@ -47,7 +48,10 @@ class SignInHandler(webapp2.RequestHandler):
 #     def get(self):
 
 class CreatePost(webapp2.RequestHandler):
-    def get(self):
+    def Post(self):
+        new_post = Post(content= self.request.get('post')
+        posts_template = env.get_template('posts.html')
+        self.response.write(posts_template.render(Posts))
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
