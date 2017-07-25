@@ -16,11 +16,10 @@
 #
 import webapp2
 import jinja2
-import ndb
 import user
-from accountuser import Account
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+env2 = jinja2.Environment(loader=jinja2.FileSystemLoader('static_files'))
 
 from google.appengine.api import users
 import webapp2
@@ -48,6 +47,7 @@ class SignInHandler(webapp2.RequestHandler):
 #    def get(self):
 
 app = webapp2.WSGIApplication([
-    ('/', SignInHandler),
+    ('/', MainPage),
+    ('/signin', SignInHandler),
     #('/', SignUpHandler),
 ], debug=True)
