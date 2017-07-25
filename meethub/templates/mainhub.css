@@ -1,0 +1,16 @@
+#topbar {
+  border: 3px solid black;
+}
+
+#leftsidebar {
+
+}
+
+
+#middlebar {
+  text-align: center;
+}
+
+#rightsidebar {
+  text-align: right;
+}
