@@ -6,4 +6,4 @@ class CssiUser(ndb.Model):
 
 class Post(ndb.Model):
     # title = ndb.StringProperty()
-    content = ndb.StringProperty()
+    name = ndb.StringProperty()

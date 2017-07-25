@@ -7,12 +7,13 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 env2 = jinja2.Environment(loader=jinja2.FileSystemLoader('static_files'))
 
 from google.appengine.api import users
+from accountuser import Activity
 from accountuser import Post
 from accountuser import CssiUser
 
-
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+
         user = users.get_current_user()
         # If the user is logged in...
         if user:
@@ -73,14 +74,22 @@ class MainHandler(webapp2.RequestHandler):
 # class SignUpHandler(webapp2.RequestHandler):
 #     def get(self):
 
-#class CreatePost(webapp2.RequestHandler):
-    #def Post(self):
-        #new_post = Post(content= self.request.get('post')
-        #posts_template = env.get_template('posts.html')
-        #self.response.write(posts_template.render(Posts))
+
+class CreatePost(webapp2.RequestHandler):
+    def get(self):
+        main_template = env.get_template('mainhub.html')
+        self.response.write(main_template.render())
+    def post(self):
+        # text_input = self.request.get('activity_name')
+        new_post = Activity(name = 'movies')
+        new_post.put()
+        # posts_template = env.get_template('posts.html')
+        # self.response.write(posts_template.render(Posts))
+
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
-    # ('/signin', SignInHandler),
+    ('/', MainPage),
+    ('/createpost', CreatePost),
+    ('/signin', SignInHandler),
     #('/', SignUpHandler),
 ], debug=True)
