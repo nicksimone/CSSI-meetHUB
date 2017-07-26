@@ -83,6 +83,7 @@ class DeleteDatabase(webapp2.RequestHandler):
 
 class CreatePost(webapp2.RequestHandler):
     def get(self):
+        
         main_template = env.get_template('mainhub.html')
         blog_posts = Activity.query().order(-Activity.date).fetch()
         variables = {'posts': blog_posts}
@@ -97,6 +98,7 @@ class CreatePost(webapp2.RequestHandler):
         variables = {'posts':blog_posts}
         posts_template = env.get_template('mainhub.html')
         self.response.write(posts_template.render(variables))
+
 
 
 

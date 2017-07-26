@@ -51,5 +51,31 @@ background-color: white;
 }
 
 #bottom{
- align-items: center;
+ margin: 20px;
+}
+
+.logoutbtn{
+  width: 100px;
+  height: 25px;
+  color: #fff;
+  border: none;
+  background-color: #FFD700;
+  border-radius: 15px;
+  box-shadow: 0 10px #27496d;
+}
+
+.logoutbtn:hover{
+  background-color: #417CB8;
+}
+
+.logoutbtn:active{
+  background-color: #417CB8;
+  box-shadow: 0 5px #27496d;
+  transform: translateY(5px);
+}
+
+
+.blog{
+  text-align: left;
+  margin-left: 15px;
 }
