@@ -11,7 +11,7 @@ h2{
 }
 
 #topbar {
-  border: 3px solid black;
+  border: 3px solid #ADD8E6;
   text-align: center;
   border-radius: 20px 60px;
   background-color: white;
@@ -22,6 +22,7 @@ h2{
 }
 
 #center{
+
   display: flex;
   flex-direction: row;
   height:100%;
@@ -30,6 +31,7 @@ h2{
 }
 
 #leftsidebar {
+border: 3px solid #ADD8E6;
 text-align: center;
 width: 350px;
 height:500px;
@@ -41,6 +43,7 @@ background-color: white;
 }
 
 #middlebar {
+  border: 3px solid #ADD8E6;
   text-align: center;
   width: 660px;
   border-radius: 25px;
@@ -51,6 +54,7 @@ background-color: white;
 }
 
 #rightsidebar {
+  border: 3px solid #ADD8E6;
   text-align: center;
   width: 350px;
   border-radius: 25px;
