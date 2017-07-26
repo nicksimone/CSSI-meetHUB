@@ -29,10 +29,7 @@ border-radius: 25px;
 margin:20px;
 box-shadow: 10px 10px grey;
 background-color: white;
-
-
 }
-
 
 #middlebar {
   text-align: center;
@@ -51,4 +48,8 @@ background-color: white;
   margin:20px;
   box-shadow: 10px 10px grey;
   background-color: white;
+}
+
+#bottom{
+ align-items: center;
 }
