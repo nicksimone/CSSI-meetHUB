@@ -74,6 +74,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class CreatePost(webapp2.RequestHandler):
     def get(self):
+        
         main_template = env.get_template('mainhub.html')
         self.response.write(main_template.render())
     def post(self):
@@ -86,6 +87,7 @@ class CreatePost(webapp2.RequestHandler):
         variables = {'posts':blog_posts}
         posts_template = env.get_template('mainhub.html')
         self.response.write(posts_template.render(variables))
+
 
 
 
