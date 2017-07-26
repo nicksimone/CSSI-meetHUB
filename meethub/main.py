@@ -81,7 +81,7 @@ class CreatePost(webapp2.RequestHandler):
         # text_input = self.request.get('activity_name')
         new_post = Activity(name = self.request.get('activity_name'), date = post_date)
         new_post.put()
-        time.sleep(10)
+        time.sleep(1)
         blog_posts = Activity.query().fetch()
         variables = {'posts':blog_posts}
         posts_template = env.get_template('mainhub.html')
