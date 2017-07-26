@@ -41,8 +41,8 @@ class MainHandler(webapp2.RequestHandler):
                     Last Name: <input type="text" name="last_name"> <br>
                     Username: <input type="text" name="userID"> <br>
                     <input type="submit">
-                    </form><br> %s <br>
-                    ''' % (email_address, signout_link_html))
+                    </form>
+                    ''' % (email_address))
         # Otherwise, the user isn't logged in!
         else:
             self.response.write('''
@@ -83,7 +83,7 @@ class DeleteDatabase(webapp2.RequestHandler):
 
 class CreatePost(webapp2.RequestHandler):
     def get(self):
-        
+
         main_template = env.get_template('mainhub.html')
         blog_posts = Activity.query().order(-Activity.date).fetch()
         variables = {'posts': blog_posts}
