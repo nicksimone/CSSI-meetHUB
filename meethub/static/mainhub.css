@@ -1,7 +1,7 @@
 body{
   background-color: #1874CD;
 }
-h3{
+h2{
   text-decoration: underline;
 }
 
@@ -15,6 +15,9 @@ h3{
   text-align: center;
   border-radius: 20px 60px;
   background-color: white;
+  width: 600px;
+  margin-left: 400px;
+
 
 }
 
