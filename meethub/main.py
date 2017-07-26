@@ -106,5 +106,4 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/createpost', CreatePost),
     ('/deletedatabase', DeleteDatabase),
-    #('/', SignUpHandler),
 ], debug=True)
