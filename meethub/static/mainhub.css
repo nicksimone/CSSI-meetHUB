@@ -1,6 +1,9 @@
 body{
   background-color: #1874CD;
 }
+h3{
+  text-decoration: underline;
+}
 
 #display {
   display: flex;
@@ -12,6 +15,7 @@ body{
   text-align: center;
   border-radius: 20px 60px;
   background-color: white;
+
 }
 
 #center{
@@ -19,6 +23,7 @@ body{
   flex-direction: row;
   height:100%;
   background-color: #1874CD;
+
 }
 
 #leftsidebar {
@@ -29,6 +34,7 @@ border-radius: 25px;
 margin:20px;
 box-shadow: 10px 10px grey;
 background-color: white;
+
 }
 
 #middlebar {
