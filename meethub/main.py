@@ -43,7 +43,7 @@ class MainHandler(webapp2.RequestHandler):
         # Otherwise, the user isn't logged in!
         else:
             self.response.write('''
-                Please log in to use our site! <br>
+                Welcome to meetHUB! <br>
                 <a href="%s">Sign in</a>''' % (
                     users.create_login_url('/')))
 
@@ -59,9 +59,14 @@ class MainHandler(webapp2.RequestHandler):
             # ID Is a special field that all ndb Models have, and esnures
             # uniquenes (only one user in the datastore can have this ID.
             id=user.user_id())
+        signout_link_html = '<a href="%s">Enter the HUB</a>' % (
+            users.create_logout_url('/createpost'))
         cssi_user.put()
-        self.response.write('Thanks for signing up, %s!' %
-            cssi_user.first_name)
+        self.response.write('Thanks for signing up, %s! <br> %s' % (
+            cssi_user.first_name,
+            signout_link_html))
+
+
 
 
 
@@ -75,6 +80,7 @@ class CreatePost(webapp2.RequestHandler):
         new_post.put()
         posts_template = env.get_template('mainhub.html')
         self.response.write(posts_template.render(Activity))
+
 
 
 app = webapp2.WSGIApplication([
