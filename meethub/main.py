@@ -37,8 +37,9 @@ class MainHandler(webapp2.RequestHandler):
                 self.response.write('''
                     Welcome to our site, %s!  Please sign up! <br>
                     <form method="post" action="/">
-                    <input type="text" name="first_name">
-                    <input type="text" name="last_name">
+                    First Name: <input type="text" name="first_name"> <br>
+                    Last Name: <input type="text" name="last_name"> <br>
+                    Username: <input type="text" name="userID"> <br>
                     <input type="submit">
                     </form><br> %s <br>
                     ''' % (email_address, signout_link_html))
@@ -58,6 +59,7 @@ class MainHandler(webapp2.RequestHandler):
         cssi_user = CssiUser(
             first_name=self.request.get('first_name'),
             last_name=self.request.get('last_name'),
+            #userID=self.request.get('userID')
             # ID Is a special field that all ndb Models have, and esnures
             # uniquenes (only one user in the datastore can have this ID.
             id=user.user_id())
@@ -68,21 +70,30 @@ class MainHandler(webapp2.RequestHandler):
             cssi_user.first_name,
             signout_link_html))
 
-
-
-
+class DeleteDatabase(webapp2.RequestHandler):
+    def get(self):
+        query = CssiUser.query()
+        all_users = query.fetch()
+        for person in all_users:
+          person.key.delete()
+        query2 = Activity.query()
+        all_activities = query2.fetch()
+        for act in all_activities:
+          act.key.delete()
 
 class CreatePost(webapp2.RequestHandler):
     def get(self):
         main_template = env.get_template('mainhub.html')
-        self.response.write(main_template.render())
+        blog_posts = Activity.query().order(-Activity.date).fetch()
+        variables = {'posts': blog_posts}
+        self.response.write(main_template.render(variables))
     def post(self):
         post_date = datetime.now()
         # text_input = self.request.get('activity_name')
         new_post = Activity(name = self.request.get('activity_name'), date = post_date)
         new_post.put()
         time.sleep(1)
-        blog_posts = Activity.query().fetch()
+        blog_posts = Activity.query().order(-Activity.date).fetch()
         variables = {'posts':blog_posts}
         posts_template = env.get_template('mainhub.html')
         self.response.write(posts_template.render(variables))
@@ -92,5 +103,6 @@ class CreatePost(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/createpost', CreatePost),
+    ('/deletedatabase', DeleteDatabase),
     #('/', SignUpHandler),
 ], debug=True)
