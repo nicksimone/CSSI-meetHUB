@@ -2,6 +2,8 @@
 import webapp2
 import jinja2
 import user
+from datetime import datetime
+import time
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 env2 = jinja2.Environment(loader=jinja2.FileSystemLoader('static_files'))
@@ -70,11 +72,15 @@ class CreatePost(webapp2.RequestHandler):
         main_template = env.get_template('mainhub.html')
         self.response.write(main_template.render())
     def post(self):
+        post_date = datetime.now()
         # text_input = self.request.get('activity_name')
-        new_post = Activity(name = self.request.get('activity_name'))
+        new_post = Activity(name = self.request.get('activity_name'), date = post_date)
         new_post.put()
+        time.sleep(10)
+        blog_posts = Activity.query().fetch()
+        variables = {'posts':blog_posts}
         posts_template = env.get_template('mainhub.html')
-        self.response.write(posts_template.render(Activity))
+        self.response.write(posts_template.render(variables))
 
 
 app = webapp2.WSGIApplication([

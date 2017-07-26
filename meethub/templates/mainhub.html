@@ -26,8 +26,9 @@
     <!--make log out button-->
     <div id="middlebar">
       <h3>Posts</h3>
-      <div id="posts">
-      </div>
+        {% for content in posts  %}
+          <div class="blog"> <h4>{{ content.name }}</h4> </div>
+       {% endfor %}
       <form method="post" action="">
       <h3>Submit an activity: </h3>
       <textarea id="name_box" name="activity_name"></textarea>

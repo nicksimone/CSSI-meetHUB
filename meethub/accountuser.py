@@ -8,3 +8,4 @@ class CssiUser(ndb.Model):
 class Activity(ndb.Model):
     # title = ndb.StringProperty()
     name = ndb.StringProperty()
+    date = ndb.DateTimeProperty()
