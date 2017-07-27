@@ -28,8 +28,6 @@ class MainHandler(webapp2.RequestHandler):
             # We could also do a standard query, but ID is special and it
             # has a special method to retrieve entries using it.
             cssi_user = CssiUser.get_by_id(user.user_id())
-            signout_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <h2 id="enter"><a href="%s">Enter the HUB</a></h2>' % (
-                users.create_logout_url('/createpost'))
             createpost_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="/create_logout_url">Enter the HUB</a>'
             # If the user has previously been to our site, we greet them!
             if cssi_user:
