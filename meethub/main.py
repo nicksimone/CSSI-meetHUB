@@ -45,7 +45,7 @@ class MainHandler(webapp2.RequestHandler):
                     First Name: <input type="text" name="first_name"> <br>
                     Last Name: <input type="text" name="last_name"> <br>
                     Username: <input type="text" name="username"> <br>
-                    <input type="submit">
+                    <br> <input type="submit">
                     </form>
                     ''' % (email_address))
         # Otherwise, the user isn't logged in!
@@ -73,7 +73,7 @@ class MainHandler(webapp2.RequestHandler):
 
         createpost_link_html = '<a href="/createpost">Enter the HUB</a>'
         # cssi_user.put()
-        self.response.write('   Thanks for signing up, %s! <br> %s' % (
+        self.response.write(' <link rel="stylesheet" href="static/mainhub.css"></link> <h1 id="thanks">  Thanks for signing up, %s! </h1> <br> %s' % (
             self.request.get('first_name'),
             createpost_link_html))
 
