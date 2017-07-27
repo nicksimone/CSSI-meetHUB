@@ -10,3 +10,4 @@ class Activity(ndb.Model):
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty()
     # user_key = ndb.KeyProperty(CssiUser)
+    author = ndb.StringProperty()

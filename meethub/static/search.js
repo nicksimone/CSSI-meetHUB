@@ -1,6 +1,6 @@
 function associate_events() {
-  $("#friend_response").hide();
-  $("#search_button_ok").click(show_friend_response;
+  // $("#friend_response").hide();
+  $("#search_button_ok").click(show_friend_response);
 }
 
 $(document).ready(
@@ -15,7 +15,7 @@ function show_friend_response(){
   }
   items_list = $(".find_friend");
   var name = items_list.eq(i).children(".search_name").eq(0).val();
-  request_data.items.push([{name: name});
+  request_data.items.push({name: name});
 
 
   $.post(

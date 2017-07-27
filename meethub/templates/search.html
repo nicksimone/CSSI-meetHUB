@@ -16,6 +16,10 @@
     <button id = "search_button_ok">Search</button>
 
     <div id="friend_response">
+      {% for u_name in variables %}
+        <h4>{% print u_name['users'][0].userID %}</h4>
+          <!-- <h4>{{u_name.userID}}</h4> -->
+      {% endfor %}
       <h4>Possible Friends: <span id="possible_friends"> </span></h4>
       <a href="/createpost">Main Page</a>
     </div>

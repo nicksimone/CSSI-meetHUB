@@ -114,9 +114,7 @@ class CreatePost(webapp2.RequestHandler):
 
         # global cssi_user_key
 
-
-
-        new_post = Activity(name = self.request.get('activity_name'), date = post_date)
+        new_post = Activity(name = self.request.get('activity_name'), date = post_date, author=self.request.get('activity_author'))
         new_post.put()
         # console.log(new_post)
         time.sleep(1)
@@ -133,6 +131,9 @@ class SearchHandler(webapp2.RequestHandler):
     def post(self):
         username = self.request.get('search_name')
         all_users = CssiUser.query().fetch()
+        variables = {'usernames': all_users}
+        search_template = env.get_template('search.html')
+        self.response.write(search_template.render(variables))
         # for u_name in all_users:
         #     if username == u_name.userID:
         #         logging.info(u_name.userID)

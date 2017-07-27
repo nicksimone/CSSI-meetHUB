@@ -36,11 +36,13 @@
     <div id="middlebar">
       <h2>Posts</h2>
         {% for content in posts  %}
-          <div class="blog"> <h4>{{ content.name }}</h4>
+          <div class="blog"> <h4>{{content.author}}: {{ content.name }}</h4>
             <button id="button_join">Join</button>
            </div>
        {% endfor %}
       <form method="post" action="">
+      <h3>What is your username?</h3>
+      <textarea id="author_name" name="activity_author"></textarea>
       <h3>Submit an activity: </h3>
       <textarea id="name_box" name="activity_name" rows="10" cols="60"></textarea>
       <button id = "button_ok">Submit</button>
