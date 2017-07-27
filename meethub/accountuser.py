@@ -7,9 +7,6 @@ class CssiUser(ndb.Model):
     username = ndb.StringProperty()
 
 class Activity(ndb.Model):
-    # title = ndb.StringProperty()
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty()
-    # user_key = ndb.KeyProperty(CssiUser)
-    # author = ndb.StringProperty()
     user = ndb.StringProperty()

@@ -28,8 +28,12 @@ class MainHandler(webapp2.RequestHandler):
             # We could also do a standard query, but ID is special and it
             # has a special method to retrieve entries using it.
             cssi_user = CssiUser.get_by_id(user.user_id())
+<<<<<<< HEAD
             signout_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <h2 id="enter"><a href="%s">Enter the HUB</a></h2>' % (
                 users.create_logout_url('/createpost'))
+=======
+            createpost_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="/create_logout_url">Enter the HUB</a>'
+>>>>>>> 10c92ba4974c6fa9ca8f6a0ec1c0d066e3e315ef
             # If the user has previously been to our site, we greet them!
             if cssi_user:
                 self.response.write('''
@@ -37,7 +41,7 @@ class MainHandler(webapp2.RequestHandler):
                         cssi_user.first_name,
                         cssi_user.last_name,
                         email_address,
-                        signout_link_html))
+                        createpost_link_html))
             # If the user hasn't been to our site, we ask them to sign up
             else:
                 self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
@@ -78,16 +82,16 @@ class MainHandler(webapp2.RequestHandler):
             self.request.get('first_name'),
             createpost_link_html))
 
-class DeleteDatabase(webapp2.RequestHandler):
-    def get(self):
-        query = CssiUser.query()
-        all_users = query.fetch()
-        for person in all_users:
-          person.key.delete()
-        query2 = Activity.query()
-        all_activities = query2.fetch()
-        for act in all_activities:
-          act.key.delete()
+# class DeleteDatabase(webapp2.RequestHandler):
+#     def get(self):
+#         query = CssiUser.query()
+#         all_users = query.fetch()
+#         for person in all_users:
+#           person.key.delete()
+#         query2 = Activity.query()
+#         all_activities = query2.fetch()
+#         for act in all_activities:
+#           act.key.delete()
 
 class CreatePost(webapp2.RequestHandler):
     def get(self):
@@ -136,7 +140,7 @@ class SearchHandler(webapp2.RequestHandler):
     def post(self):
         username = self.request.get('search_name')
         all_users = CssiUser.query().fetch()
-        variables = {'usernames': all_users}
+        variables = {'users': all_users, 'username': username}
         search_template = env.get_template('search.html')
         self.response.write(search_template.render(variables))
         # for u_name in all_users:
@@ -165,6 +169,6 @@ class SearchHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/createpost', CreatePost),
-    ('/deletedatabase', DeleteDatabase),
+    # ('/deletedatabase', DeleteDatabase),
     ('/search', SearchHandler)
 ], debug=True)
