@@ -6,6 +6,9 @@ function write_user_name () {
 }
 function setUp() {
   $("#button_ok").click(write_user_name);
+  $("#button_join").click(addAttending);
 }
-
+function addAttending() {
+  
+}
 $(document).ready(setUp);
