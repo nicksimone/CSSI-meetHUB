@@ -28,19 +28,19 @@ class MainHandler(webapp2.RequestHandler):
             # We could also do a standard query, but ID is special and it
             # has a special method to retrieve entries using it.
             cssi_user = CssiUser.get_by_id(user.user_id())
-            signout_link_html = '<a href="%s">Enter the HUB</a>' % (
+            signout_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="%s">Enter the HUB</a>' % (
                 users.create_logout_url('/createpost'))
             # If the user has previously been to our site, we greet them!
             if cssi_user:
                 self.response.write('''
-                    Welcome %s %s (%s)! <br> %s <br>''' % (
+                      <link rel="stylesheet" href="static/mainhub.css"></link>Welcome %s %s (%s)! <br> %s <br>''' % (
                         cssi_user.first_name,
                         cssi_user.last_name,
                         email_address,
                         signout_link_html))
             # If the user hasn't been to our site, we ask them to sign up
             else:
-                self.response.write('''
+                self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
                     Welcome to our site, %s!  Please sign up! <br>
                     <form method="post" action="/">
                     First Name: <input type="text" name="first_name"> <br>
@@ -51,8 +51,8 @@ class MainHandler(webapp2.RequestHandler):
                     ''' % (email_address))
         # Otherwise, the user isn't logged in!
         else:
-            self.response.write('''
-                Welcome to meetHUB! <br>
+            self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
+                <h1 class= "login">Welcome to meetHUB!</h1> <br>
                 <a href="%s">Sign in</a>''' % (
                     users.create_login_url('/')))
 
@@ -79,7 +79,7 @@ class MainHandler(webapp2.RequestHandler):
         signout_link_html = '<a href="%s">Enter the HUB</a>' % (
             users.create_logout_url('/createpost'))
         # cssi_user.put()
-        self.response.write('Thanks for signing up, %s! <br> %s' % (
+        self.response.write('  <link rel="stylesheet" href="static/mainhub.css"></link>Thanks for signing up, %s! <br> %s' % (
             cssi_user.first_name,
             signout_link_html))
 

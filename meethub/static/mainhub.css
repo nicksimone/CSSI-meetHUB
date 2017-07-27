@@ -6,6 +6,26 @@ h2{
   text-decoration: underline;
 }
 
+.login{
+    font-family: 'Effects Eighty',monospace;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    background-color: white;
+    width: 600px;
+    margin-left: 400px;
+    border-radius: 20px 60px;
+    border: 3px solid #ADD8E6;
+}
+
+p{
+  font-family: 'Montserrat', sans-serif;
+}
+
+a{
+  font-family: 'Montserrat', sans-serif;
+}
+
 #display {
   display: flex;
   flex-direction: row;
@@ -74,6 +94,7 @@ background-color: white;
 .blog{
   text-align: left;
   margin-left: 15px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a:link{
