@@ -22,6 +22,7 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
 
         user = users.get_current_user()
+        # If the user is logged in...
         if user:
             email_address = user.nickname()
             # We could also do a standard query, but ID is special and it
@@ -32,6 +33,7 @@ class MainHandler(webapp2.RequestHandler):
             cssi_user = CssiUser.get_by_id(user.user_id())
             signout_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="%s">Enter the HUB</a>' % (
                 users.create_logout_url('/createpost'))
+
             createpost_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="/create_logout_url">Enter the HUB</a>'
             # If the user has previously been to our site, we greet them!
 
