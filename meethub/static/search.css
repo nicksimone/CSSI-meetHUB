@@ -1,0 +1,13 @@
+body{
+  background-color: #1874CD;
+}
+
+#main{
+  background-color: white;
+  border-radius: 40px;
+  text-align: center;
+  padding: 15px;
+  width:400px;
+  position: relative;
+  left:38%;
+}
