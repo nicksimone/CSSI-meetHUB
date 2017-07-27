@@ -79,7 +79,7 @@ class MainHandler(webapp2.RequestHandler):
         signout_link_html = '<a href="%s">Enter the HUB</a>' % (
             users.create_logout_url('/createpost'))
         # cssi_user.put()
-        self.response.write('  <link rel="stylesheet" href="static/mainhub.css"></link>Thanks for signing up, %s! <br> %s' % (
+        self.response.write('  <link rel="stylesheet" href="static/mainhub.css"></link><h1 id="stuff">Thanks for signing up, %s!</h1> <br> %s' % (
             cssi_user.first_name,
             signout_link_html))
 
