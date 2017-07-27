@@ -2,6 +2,7 @@ body{
   background-color: #1874CD;
 }
 h2{
+  font-family: 'Bowlby One',cursive;
   text-decoration: underline;
 }
 
@@ -11,6 +12,8 @@ h2{
 }
 
 #topbar {
+  font-family: 'Bowlby One',cursive;
+  font-weight: bold;
   border: 3px solid #ADD8E6;
   text-align: center;
   border-radius: 20px 60px;
@@ -22,12 +25,10 @@ h2{
 }
 
 #center{
-
   display: flex;
   flex-direction: row;
   height:100%;
   background-color: #1874CD;
-
 }
 
 #leftsidebar {
