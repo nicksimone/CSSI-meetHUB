@@ -22,7 +22,6 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
 
         user = users.get_current_user()
-        # If the user is logged in...
         if user:
             email_address = user.nickname()
             # We could also do a standard query, but ID is special and it
