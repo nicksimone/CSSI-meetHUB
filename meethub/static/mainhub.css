@@ -6,7 +6,11 @@ h2{
   text-decoration: underline;
 }
 
-#info{
+#button{
+  width:100px;
+}
+
+.info{
   background-color: white;
   border-radius: 40px;
   text-align: center;
