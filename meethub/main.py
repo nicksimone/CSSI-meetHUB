@@ -28,32 +28,38 @@ class MainHandler(webapp2.RequestHandler):
             # We could also do a standard query, but ID is special and it
             # has a special method to retrieve entries using it.
             cssi_user = CssiUser.get_by_id(user.user_id())
-            signout_link_html = '<a href="%s">Enter the HUB</a>' % (
+            signout_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="%s">Enter the HUB</a>' % (
                 users.create_logout_url('/createpost'))
             # If the user has previously been to our site, we greet them!
             if cssi_user:
                 self.response.write('''
-                    Welcome %s %s (%s)! <br> %s <br>''' % (
+                      <link rel="stylesheet" href="static/mainhub.css"></link>Welcome %s %s (%s)! <br> %s <br>''' % (
                         cssi_user.first_name,
                         cssi_user.last_name,
                         email_address,
                         signout_link_html))
             # If the user hasn't been to our site, we ask them to sign up
             else:
-                self.response.write('''
+                self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
                     Welcome to our site, %s!  Please sign up! <br>
-                    <form method="post" action="/">
+                    <h2 class= "info"><form method="post" action="/">
                     First Name: <input type="text" name="first_name"> <br>
                     Last Name: <input type="text" name="last_name"> <br>
+<<<<<<< HEAD
                     Username: <input type="text" name="username"> <br>
                     <input type="submit">
                     </form>
+=======
+                    Username: <input type="text" name="userID"> <br>
+                    <input type="submit" style="width:100px">
+                    </form></h2>
+>>>>>>> ebdfc32201b03131f331c1fe0cdd34f9d2898c7b
                     ''' % (email_address))
         # Otherwise, the user isn't logged in!
         else:
-            self.response.write('''
-                Welcome to meetHUB! <br>
-                <a href="%s">Sign in</a>''' % (
+            self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
+                <h1 class= "login">Welcome to meetHUB!</h1> <br>
+                <h2 id="signin"><a href="%s">Sign in</a></h2>''' % (
                     users.create_login_url('/')))
 
     def post(self):
@@ -74,9 +80,15 @@ class MainHandler(webapp2.RequestHandler):
 
         createpost_link_html = '<a href="/createpost">Enter the HUB</a>'
         # cssi_user.put()
+<<<<<<< HEAD
         self.response.write('   Thanks for signing up, %s! <br> %s' % (
             self.request.get('first_name'),
             createpost_link_html))
+=======
+        self.response.write('  <link rel="stylesheet" href="static/mainhub.css"></link><h1 id="stuff">Thanks for signing up, %s!</h1> <br> %s' % (
+            cssi_user.first_name,
+            signout_link_html))
+>>>>>>> ebdfc32201b03131f331c1fe0cdd34f9d2898c7b
 
 class DeleteDatabase(webapp2.RequestHandler):
     def get(self):

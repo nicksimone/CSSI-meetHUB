@@ -6,6 +6,60 @@ h2{
   text-decoration: underline;
 }
 
+.info{
+  background-color: white;
+  border-radius: 40px;
+  text-align: center;
+  margin: 20px;
+  padding:10px;
+  text-decoration: none;
+  font-family: monospace;
+  border: 3px solid #ADD8E6;
+}
+
+.login{
+    font-family: 'Effects Eighty',monospace;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    background-color: white;
+    width: 600px;
+    margin-left: 400px;
+    border-radius: 20px 60px;
+    border: 3px solid #ADD8E6;
+}
+
+#signin{
+  text-align: center;
+  background-color: #ADD8E6;
+  color: white;
+  width: 100px;
+  border-radius: 40px ;
+  margin-left: 660px;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#stuff{
+      font-family: 'Effects Eighty',monospace;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px;
+      background-color: white;
+      width: 600px;
+      margin-left: 400px;
+      border-radius: 20px 60px;
+      border: 3px solid #ADD8E6;
+}
+
+p{
+  font-family: 'Montserrat', sans-serif;
+}
+
+a{
+  font-family: 'Montserrat', sans-serif;
+}
+
 #display {
   display: flex;
   flex-direction: row;
@@ -74,6 +128,7 @@ background-color: white;
 .blog{
   text-align: left;
   margin-left: 15px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a:link{
