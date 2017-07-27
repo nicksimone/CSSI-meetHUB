@@ -7,8 +7,11 @@ function write_user_name () {
 function setUp() {
   $("#button_ok").click(write_user_name);
   $("#button_join").click(addAttending);
+  // $('#search_button_ok').click()
 }
-function addAttending() {
-  
-}
+// var number_attending = 0;
+// function addAttending() {
+//   global number_attending;
+//   number_attending += 1;
+// }
 $(document).ready(setUp);
