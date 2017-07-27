@@ -27,16 +27,24 @@ class MainHandler(webapp2.RequestHandler):
             email_address = user.nickname()
             # We could also do a standard query, but ID is special and it
             # has a special method to retrieve entries using it.
-            cssi_user = CssiUser.get_by_id(user.user_id())
+            user_query = CssiUser.query(CssiUser.user_id == user.user_id())
+            theUser = user_query.fetch()
+
             createpost_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="/create_logout_url">Enter the HUB</a>'
             # If the user has previously been to our site, we greet them!
-            if cssi_user:
-                self.response.write('''
-                      <link rel="stylesheet" href="static/mainhub.css"></link>Welcome %s %s (%s)! <br> %s <br>''' % (
-                        cssi_user.first_name,
-                        cssi_user.last_name,
-                        email_address,
-                        createpost_link_html))
+
+            if theUser != []:
+                enterHub = '/createpost'
+                self.response.write('<div><a href="%s">Sign out</a><br><a href="%s">EnterHUB</a></div>' % (users.create_logout_url('/'), enterHub))
+                #
+                #
+                # ''
+                #       <link rel="stylesheet" href="static/mainhub.css"></link>Welcome %s %s (%s)! <br> %s <br> <a href="%s">Log Out</a>''' % (
+                #         cssi_user.first_name,
+                #         cssi_user.last_name,
+                #         email_address,
+                #         createpost_link_html,
+                #         users.create_logout_url('/')))
             # If the user hasn't been to our site, we ask them to sign up
             else:
                 self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
@@ -151,6 +159,9 @@ class SearchHandler(webapp2.RequestHandler):
         # self.response.headers['Content-Type'] = "application/json"
         # self.response.write(json.dumps(reply_data))
 
+# class LogOutHandler(webapp2.RequestHandler):
+#     def get(self):
+
 
 
 #cssi_user = CssiUser(userID="ndsimone", first_name = "Nick", last_name = "dane")
@@ -161,9 +172,11 @@ class SearchHandler(webapp2.RequestHandler):
 #   if username == u_name.userID:
 #     print "Yes"
 
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/createpost', CreatePost),
     # ('/deletedatabase', DeleteDatabase),
-    ('/search', SearchHandler)
+    ('/search', SearchHandler),
+    # ('/logout' SignOutHandler)
 ], debug=True)
