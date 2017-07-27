@@ -53,7 +53,7 @@ class MainHandler(webapp2.RequestHandler):
         else:
             self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
                 <h1 class= "login">Welcome to meetHUB!</h1> <br>
-                <a href="%s">Sign in</a>''' % (
+                <h2 id="signin"><a href="%s">Sign in</a></h2>''' % (
                     users.create_login_url('/')))
 
     def post(self):
