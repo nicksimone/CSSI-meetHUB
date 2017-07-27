@@ -32,6 +32,16 @@ h2{
     border: 3px solid #ADD8E6;
 }
 
+#homepage{
+  background-color: white;
+  border-radius: 40px;
+  text-align: center;
+  width: 400px;
+  position: relative;
+  left: 36%;
+  padding: 15px;
+}
+
 #button_ok{
   padding:5px 15px;
   background:#ccc;
