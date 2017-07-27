@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One" rel="stylesheet">
     <link rel="stylesheet" href="static/mainhub.css"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="static/mainhub.js"></script>
@@ -10,7 +11,7 @@
   <body>
 <div id="header">
   <div id="topbar">
-      <h1>meetHUB</h1>
+      <h1>m e e t H U B</h1>
 
   </div>
 </div>
@@ -20,9 +21,13 @@
       <p>
 
           <a href= "https://doodle.com/poll/eegqzzmdsmgg2dsv">Basketball</a> <br />
+          <br />
           <a href= "https://doodle.com/poll/ee946gzwvbmcan6k">Movies</a><br />
+          <br />
           <a href= "https://doodle.com/poll/syevipq9mdm7zreb">Bowling</a><br />
+          <br />
           <a href= "https://doodle.com/poll/pz8zvnzczfd45dfy">Coffee</a><br />
+          <br />
           <a href= "https://doodle.com/poll/eegqzzmdsmgg2dsv">Concert</a><br />
 
         </p>
@@ -37,7 +42,7 @@
        {% endfor %}
       <form method="post" action="">
       <h3>Submit an activity: </h3>
-      <textarea id="name_box" name="activity_name"></textarea>
+      <textarea id="name_box" name="activity_name" rows="10" cols="60"></textarea>
       <button id = "button_ok">Submit</button>
     </form>
     </div>
