@@ -28,7 +28,7 @@ class MainHandler(webapp2.RequestHandler):
             # We could also do a standard query, but ID is special and it
             # has a special method to retrieve entries using it.
             cssi_user = CssiUser.get_by_id(user.user_id())
-            signout_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="%s">Enter the HUB</a>' % (
+            signout_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <h2 id="enter"><a href="%s">Enter the HUB</a></h2>' % (
                 users.create_logout_url('/createpost'))
             # If the user has previously been to our site, we greet them!
             if cssi_user:
@@ -46,7 +46,7 @@ class MainHandler(webapp2.RequestHandler):
                     First Name: <input type="text" name="first_name"> <br>
                     Last Name: <input type="text" name="last_name"> <br>
                     Username: <input type="text" name="username"> <br>
-                    <input type="submit">
+                    <br> <input type="submit">
                     </form>
                     ''' % (email_address))
         # Otherwise, the user isn't logged in!
@@ -74,7 +74,7 @@ class MainHandler(webapp2.RequestHandler):
 
         createpost_link_html = '<a href="/createpost">Enter the HUB</a>'
         # cssi_user.put()
-        self.response.write('   Thanks for signing up, %s! <br> %s' % (
+        self.response.write(' <link rel="stylesheet" href="static/mainhub.css"></link> <h1 id="thanks">  Thanks for signing up, %s! </h1> <br> %s' % (
             self.request.get('first_name'),
             createpost_link_html))
 
