@@ -42,12 +42,12 @@ class MainHandler(webapp2.RequestHandler):
             else:
                 self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
                     Welcome to our site, %s!  Please sign up! <br>
-                    <form method="post" action="/">
+                    <h2 id= "info"><form method="post" action="/">
                     First Name: <input type="text" name="first_name"> <br>
                     Last Name: <input type="text" name="last_name"> <br>
                     Username: <input type="text" name="userID"> <br>
                     <input type="submit">
-                    </form>
+                    </form></h2>
                     ''' % (email_address))
         # Otherwise, the user isn't logged in!
         else:

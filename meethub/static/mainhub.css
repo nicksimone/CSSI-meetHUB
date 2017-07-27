@@ -6,6 +6,17 @@ h2{
   text-decoration: underline;
 }
 
+#info{
+  background-color: white;
+  border-radius: 40px;
+  text-align: center;
+  margin: 20px;
+  padding:10px;
+  text-decoration: none;
+  font-family: monospace;
+  border: 3px solid #ADD8E6;
+}
+
 .login{
     font-family: 'Effects Eighty',monospace;
     font-weight: bold;
