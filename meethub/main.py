@@ -40,7 +40,7 @@ class MainHandler(webapp2.RequestHandler):
             # If the user hasn't been to our site, we ask them to sign up
             else:
                 self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
-                    Welcome to our site, %s!  Please sign up! <br><h2 class= "info">
+                    <h2 class= "info">Welcome to our site, %s!  Please sign up! <br>
                     <form method="post" action="/">
                     First Name: <input type="text" name="first_name"> <br>
                     Last Name: <input type="text" name="last_name"> <br>
