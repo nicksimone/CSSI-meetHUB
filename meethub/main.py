@@ -45,15 +45,9 @@ class MainHandler(webapp2.RequestHandler):
                     <h2 class= "info"><form method="post" action="/">
                     First Name: <input type="text" name="first_name"> <br>
                     Last Name: <input type="text" name="last_name"> <br>
-<<<<<<< HEAD
                     Username: <input type="text" name="username"> <br>
                     <input type="submit">
                     </form>
-=======
-                    Username: <input type="text" name="userID"> <br>
-                    <input type="submit" style="width:100px">
-                    </form></h2>
->>>>>>> ebdfc32201b03131f331c1fe0cdd34f9d2898c7b
                     ''' % (email_address))
         # Otherwise, the user isn't logged in!
         else:
@@ -80,15 +74,9 @@ class MainHandler(webapp2.RequestHandler):
 
         createpost_link_html = '<a href="/createpost">Enter the HUB</a>'
         # cssi_user.put()
-<<<<<<< HEAD
         self.response.write('   Thanks for signing up, %s! <br> %s' % (
             self.request.get('first_name'),
             createpost_link_html))
-=======
-        self.response.write('  <link rel="stylesheet" href="static/mainhub.css"></link><h1 id="stuff">Thanks for signing up, %s!</h1> <br> %s' % (
-            cssi_user.first_name,
-            signout_link_html))
->>>>>>> ebdfc32201b03131f331c1fe0cdd34f9d2898c7b
 
 class DeleteDatabase(webapp2.RequestHandler):
     def get(self):
