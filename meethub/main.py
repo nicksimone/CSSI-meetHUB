@@ -45,7 +45,7 @@ class MainHandler(webapp2.RequestHandler):
                     <form method="post" action="/">
                     First Name: <input type="text" name="first_name"> <br>
                     Last Name: <input type="text" name="last_name"> <br>
-                    Username: <input type="text" name="userID"> <br>
+                    Username: <input type="text" name="username"> <br>
                     <input type="submit">
                     </form>
                     ''' % (email_address))
@@ -65,23 +65,18 @@ class MainHandler(webapp2.RequestHandler):
         cssi_user = CssiUser(
             first_name=self.request.get('first_name'),
             last_name=self.request.get('last_name'),
-            #userID=self.request.get('userID')
+            username=self.request.get('username'),
             # ID Is a special field that all ndb Models have, and esnures
             # uniquenes (only one user in the datastore can have this ID.
-            id=user.user_id())
-
-
-        # global cssi_user_key
-        # cssi_user_key = cssi_user.put()
+            user_id=user.user_id()).put()
 
 
 
-        signout_link_html = '<a href="%s">Enter the HUB</a>' % (
-            users.create_logout_url('/createpost'))
+        createpost_link_html = '<a href="/createpost">Enter the HUB</a>'
         # cssi_user.put()
-        self.response.write('Thanks for signing up, %s! <br> %s' % (
-            cssi_user.first_name,
-            signout_link_html))
+        self.response.write('   Thanks for signing up, %s! <br> %s' % (
+            self.request.get('first_name'),
+            createpost_link_html))
 
 class DeleteDatabase(webapp2.RequestHandler):
     def get(self):
@@ -96,25 +91,35 @@ class DeleteDatabase(webapp2.RequestHandler):
 
 class CreatePost(webapp2.RequestHandler):
     def get(self):
-
-        user = users.get_current_user()
+        # all_users = CssiUser.query().fetch()
+        # for usernames in all_users:
+        #     if user == usernames.userID:
+        #         current_user_key = usernames.key
         # user_key = user.get('key')
         # console.log(user_key)
         # theId = user.user_id()
+        user = users.get_current_user()
+        user_query = CssiUser.query(CssiUser.user_id == user.user_id())
+        current_user_data = user_query.get()
+        # self.response.write(current_user_data.username)
+
 
         main_template = env.get_template('mainhub.html')
         blog_posts = Activity.query().order(-Activity.date).fetch()
         variables = {'posts': blog_posts}
         self.response.write(main_template.render(variables))
+
     def post(self):
         post_date = datetime.now()
         # text_input = self.request.get('activity_name')
 
-
+        user = users.get_current_user()
+        user_query = CssiUser.query(CssiUser.user_id == user.user_id())
+        current_user_data = user_query.get()
 
         # global cssi_user_key
 
-        new_post = Activity(name = self.request.get('activity_name'), date = post_date, author=self.request.get('activity_author'))
+        new_post = Activity(name = self.request.get('activity_name'), date = post_date, user=current_user_data.username)
         new_post.put()
         # console.log(new_post)
         time.sleep(1)
