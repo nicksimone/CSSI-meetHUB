@@ -83,7 +83,7 @@ class MainHandler(webapp2.RequestHandler):
 
 
 
-        createpost_link_html = '<a href="/createpost">Enter the HUB</a>'
+        createpost_link_html = '<div id="main2"><a href="/createpost">Enter the HUB</a></div>'
         # cssi_user.put()
         self.response.write(' <link rel="stylesheet" href="static/mainhub.css"></link> <h1 id="thanks">  Thanks for signing up, %s! </h1> <br> %s' % (
             self.request.get('first_name'),
