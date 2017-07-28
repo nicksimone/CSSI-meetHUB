@@ -5,7 +5,7 @@ function write_user_name () {
   $("#posts").text(user_name);
 }
 
-function associate_events() {
+function setUp() {
   $("#button_ok").click(write_user_name);
 }
 

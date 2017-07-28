@@ -75,7 +75,8 @@ class MainHandler(webapp2.RequestHandler):
             username=self.request.get('username'),
             # ID Is a special field that all ndb Models have, and esnures
             # uniquenes (only one user in the datastore can have this ID.
-            user_id=user.user_id()).put()
+            user_id=user.user_id(),
+            friends = []).put()
 
 
 
@@ -113,7 +114,10 @@ class CreatePost(webapp2.RequestHandler):
 
         main_template = env.get_template('mainhub.html')
         blog_posts = Activity.query().order(-Activity.date).fetch()
-        variables = {'posts': blog_posts}
+        friend_list = current_user_data.friends
+        print friend_list
+        # friends = Friend.query()
+        variables = {'posts': blog_posts, 'friends': friend_list}
         self.response.write(main_template.render(variables))
 
     def post(self):
@@ -123,13 +127,15 @@ class CreatePost(webapp2.RequestHandler):
         user = users.get_current_user()
         user_query = CssiUser.query(CssiUser.user_id == user.user_id())
         current_user_data = user_query.get()
-
+        your_id= current_user_data.username
+        print your_id
         # global cssi_user_key
 
         new_post = Activity(name = self.request.get('activity_name'), date = post_date, user=current_user_data.username)
         new_post.put()
         # console.log(new_post)
         time.sleep(1)
+        # friends_query = Friend.query(Friend)
         blog_posts = Activity.query().order(-Activity.date).fetch()
         variables = {'posts':blog_posts}
         posts_template = env.get_template('mainhub.html')
@@ -142,15 +148,17 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.write(main_template.render())
     def post(self):
         user = users.get_current_user()
-        print user
-        print user.user_id()
+        # print user
+        # print user.user_id()
         cssi_user = CssiUser.query(CssiUser.user_id == user.user_id()).get()
         print cssi_user
         your_id = cssi_user.username
-        print your_id
+        # print your_id
         username = self.request.get('search_name')
         friend_user = CssiUser.query(CssiUser.username==username).get()
         if friend_user:
+            cssi_user.friends.append(username)
+            cssi_user.put()
             new_friend = Friend(friend_id= username, your_id= your_id)
             new_friend.put()
             self.response.write("Friend added")
@@ -172,7 +180,7 @@ class SearchHandler(webapp2.RequestHandler):
         # }
         # self.response.headers['Content-Type'] = "application/json"
         # self.response.write(json.dumps(reply_data))
-
+        print cssi_user.friends
 # class LogOutHandler(webapp2.RequestHandler):
 #     def get(self):
 

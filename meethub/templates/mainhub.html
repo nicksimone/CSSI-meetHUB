@@ -48,6 +48,11 @@
     </div>
     <div id="rightsidebar">
       <h2>friend activity</h2>
+      {% for my_friend in friends  %}
+        <div class="blog"> <h4>{{ my_friend }}</h4>
+          <!--<button id="button_join">Join</button>-->
+         </div>
+     {% endfor %}
       <a href="/search">Search for Friends</a>
     </div>
     </div>

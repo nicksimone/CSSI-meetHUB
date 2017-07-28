@@ -5,6 +5,7 @@ class CssiUser(ndb.Model):
     first_name = ndb.StringProperty()
     last_name = ndb.StringProperty()
     username = ndb.StringProperty()
+    friends = ndb.StringProperty(repeated=True)
 
 class Activity(ndb.Model):
     name = ndb.StringProperty()
