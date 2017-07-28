@@ -12,7 +12,6 @@ env2 = jinja2.Environment(loader=jinja2.FileSystemLoader('static_files'))
 from google.appengine.api import users
 from accountuser import Activity
 from accountuser import CssiUser
-from accountuser import Friend
 
 # global cssi_user_key
 
@@ -110,14 +109,14 @@ class CreatePost(webapp2.RequestHandler):
         user_query = CssiUser.query(CssiUser.user_id == user.user_id())
         current_user_data = user_query.get()
         # self.response.write(current_user_data.username)
-
+        print current_user_data.username
 
         main_template = env.get_template('mainhub.html')
         blog_posts = Activity.query().order(-Activity.date).fetch()
         friend_list = current_user_data.friends
         print friend_list
         # friends = Friend.query()
-        variables = {'posts': blog_posts, 'friends': friend_list}
+        variables = {'posts': blog_posts, 'friends': friend_list, 'username': current_user_data.username}
         self.response.write(main_template.render(variables))
 
     def post(self):
@@ -135,9 +134,11 @@ class CreatePost(webapp2.RequestHandler):
         new_post.put()
         # console.log(new_post)
         time.sleep(1)
+        friend_list = current_user_data.friends
+
         # friends_query = Friend.query(Friend)
         blog_posts = Activity.query().order(-Activity.date).fetch()
-        variables = {'posts':blog_posts}
+        variables = {'posts':blog_posts, 'friends': friend_list, 'username': current_user_data.username}
         posts_template = env.get_template('mainhub.html')
         self.response.write(posts_template.render(variables))
 
@@ -159,8 +160,8 @@ class SearchHandler(webapp2.RequestHandler):
         if friend_user:
             cssi_user.friends.append(username)
             cssi_user.put()
-            new_friend = Friend(friend_id= username, your_id= your_id)
-            new_friend.put()
+            # new_friend = Friend(friend_id= username, your_id= your_id)
+            # new_friend.put()
             self.response.write("Friend added")
         else:
             self.response.write('User does not exist, please try again <a href="/search">Search for Friends </a>')

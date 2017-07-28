@@ -12,6 +12,6 @@ class Activity(ndb.Model):
     date = ndb.DateTimeProperty()
     user = ndb.StringProperty()
 
-class Friend(ndb.Model):
-    friend_id = ndb.StringProperty()
-    your_id = ndb.StringProperty()
+# class Friend(ndb.Model):
+#     friend_id = ndb.StringProperty()
+#     your_id = ndb.StringProperty()
