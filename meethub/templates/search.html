@@ -13,8 +13,8 @@
     <form method="post" action="">
     <textarea id="search_box" name="search_name"></textarea>
   </div>
-    <button id = "search_button_ok">Search</button>
-
+    <input id = "search_button_ok" type="submit"></input>
+  </form>
     <div id="friend_response">
       {% for u_name in variables %}
         <h4>{% print u_name['users'][0].userID %}</h4>

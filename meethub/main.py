@@ -12,7 +12,7 @@ env2 = jinja2.Environment(loader=jinja2.FileSystemLoader('static_files'))
 from google.appengine.api import users
 from accountuser import Activity
 from accountuser import CssiUser
-
+from accountuser import Friend
 
 # global cssi_user_key
 
@@ -30,16 +30,12 @@ class MainHandler(webapp2.RequestHandler):
             user_query = CssiUser.query(CssiUser.user_id == user.user_id())
             theUser = user_query.fetch()
 
-            cssi_user = CssiUser.get_by_id(user.user_id())
-            signout_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="%s">Enter the HUB</a>' % (
-                users.create_logout_url('/createpost'))
-
             createpost_link_html = '  <link rel="stylesheet" href="static/mainhub.css"></link> <a href="/create_logout_url">Enter the HUB</a>'
             # If the user has previously been to our site, we greet them!
 
             if theUser != []:
                 enterHub = '/createpost'
-                self.response.write('<link rel="stylesheet" href="static/mainhub.css"></link><div id="homepage"><a href="%s">Sign out</a><br><a href="%s">EnterHUB</a></div>' % (users.create_logout_url('/'), enterHub))
+                self.response.write('<div><a href="%s">Sign out</a><br><a href="%s">EnterHUB</a></div>' % (users.create_logout_url('/'), enterHub))
                 #
                 #
                 # ''
@@ -145,11 +141,25 @@ class SearchHandler(webapp2.RequestHandler):
         main_template = env.get_template('search.html')
         self.response.write(main_template.render())
     def post(self):
+        user = users.get_current_user()
+        print user
+        print user.user_id()
+        cssi_user = CssiUser.query(CssiUser.user_id == user.user_id()).get()
+        print cssi_user
+        your_id = cssi_user.username
+        print your_id
         username = self.request.get('search_name')
-        all_users = CssiUser.query().fetch()
-        variables = {'users': all_users, 'username': username}
-        search_template = env.get_template('search.html')
-        self.response.write(search_template.render(variables))
+        friend_user = CssiUser.query(CssiUser.username==username).get()
+        if friend_user:
+            new_friend = Friend(friend_id= username, your_id= your_id)
+            new_friend.put()
+            self.response.write("Friend added")
+        else:
+            self.response.write('User does not exist, please try again <a href="/search">Search for Friends </a>')
+        # all_users = CssiUser.query(CssiUser.user_id() != your_id).fetch()
+        # variables = {'users': all_users, 'username': username}
+        # search_template = env.get_template('search.html')
+        # self.response.write(search_template.render(variables))
         # for u_name in all_users:
         #     if username == u_name.userID:
         #         logging.info(u_name.userID)

@@ -10,3 +10,7 @@ class Activity(ndb.Model):
     name = ndb.StringProperty()
     date = ndb.DateTimeProperty()
     user = ndb.StringProperty()
+
+class Friend(ndb.Model):
+    friend_id = ndb.StringProperty()
+    your_id = ndb.StringProperty()
