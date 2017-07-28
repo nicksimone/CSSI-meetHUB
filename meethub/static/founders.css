@@ -8,7 +8,11 @@ body{
   text-align: center;
   background-color: white;
   border-radius: 40px;
-
+  border: 3px solid #ADD8E6;
+  text-align: left;
+  padding: 15px;
+  margin: 15px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #main{
@@ -17,4 +21,5 @@ body{
   justify-content: space-between;
   height: 500px;
   align-items: left;
+
 }
