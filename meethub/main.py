@@ -185,7 +185,10 @@ class SearchHandler(webapp2.RequestHandler):
 # class LogOutHandler(webapp2.RequestHandler):
 #     def get(self):
 
-
+class AboutUsHandler(webapp2.RequestHandler):
+    def get(self):
+        main_template = env.get_template('founders.html')
+        self.response.write(main_template.render())
 
 #cssi_user = CssiUser(userID="ndsimone", first_name = "Nick", last_name = "dane")
 #cssi_user_key = cssi_user.put()
@@ -199,7 +202,6 @@ class SearchHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/createpost', CreatePost),
-    # ('/deletedatabase', DeleteDatabase),
     ('/search', SearchHandler),
-    # ('/logout' SignOutHandler)
+    ('/aboutus', AboutUsHandler)
 ], debug=True)
