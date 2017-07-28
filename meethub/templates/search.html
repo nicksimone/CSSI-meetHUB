@@ -3,10 +3,13 @@
   <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="static/search.css"></link>
     <script src="static/search.js"></script>
     <title>Search for Friends</title>
   </head>
   <body>
+<<<<<<< HEAD
     <h2>Search for friends: </h2>
     <h4>What is the username? </h4>
     <div class="find_friend">
@@ -15,6 +18,16 @@
   </div>
     <input id = "search_button_ok" type="submit"></input>
   </form>
+=======
+    <div id="main">
+      <h2>Search for friends: </h2>
+      <h4>What is the username? </h4>
+      <div class="find_friend">
+      <form method="post" action="">
+      <textarea id="search_box" name="search_name"></textarea>
+    </div>
+    <button id = "search_button_ok">Search</button>
+>>>>>>> b40cc58e526de99cad7e177f6fd6dc402ec0612e
     <div id="friend_response">
       {% for u_name in variables %}
         <h4>{% print u_name['users'][0].userID %}</h4>
@@ -23,5 +36,7 @@
       <h4>Possible Friends: <span id="possible_friends"> </span></h4>
       <a href="/createpost">Main Page</a>
     </div>
+    </div>
+
   </body>
 </html>

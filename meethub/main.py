@@ -35,7 +35,11 @@ class MainHandler(webapp2.RequestHandler):
 
             if theUser != []:
                 enterHub = '/createpost'
+<<<<<<< HEAD
                 self.response.write('<div><a href="%s">Sign out</a><br><a href="%s">EnterHUB</a></div>' % (users.create_logout_url('/'), enterHub))
+=======
+                self.response.write('<link rel="stylesheet" href="static/mainhub.css"></link><div id="homepage"><a href="%s">Sign out</a><br><br><a href="%s">EnterHUB</a></div>' % (users.create_logout_url('/'), enterHub))
+>>>>>>> b40cc58e526de99cad7e177f6fd6dc402ec0612e
                 #
                 #
                 # ''
@@ -48,7 +52,7 @@ class MainHandler(webapp2.RequestHandler):
             # If the user hasn't been to our site, we ask them to sign up
             else:
                 self.response.write('''  <link rel="stylesheet" href="static/mainhub.css"></link>
-                    <h2 class= "info">Welcome to our site, %s!  Please sign up! <br>
+                    <h2 id= "info">Welcome to our site, %s!  Please sign up! <br>
                     <form method="post" action="/">
                     First Name: <input type="text" name="first_name"> <br>
                     Last Name: <input type="text" name="last_name"> <br>
@@ -79,7 +83,7 @@ class MainHandler(webapp2.RequestHandler):
 
 
 
-        createpost_link_html = '<a href="/createpost">Enter the HUB</a>'
+        createpost_link_html = '<div id="main2"><a href="/createpost">Enter the HUB</a></div>'
         # cssi_user.put()
         self.response.write(' <link rel="stylesheet" href="static/mainhub.css"></link> <h1 id="thanks">  Thanks for signing up, %s! </h1> <br> %s' % (
             self.request.get('first_name'),
