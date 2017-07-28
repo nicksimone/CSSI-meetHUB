@@ -46,3 +46,8 @@ p{
   align-items: left;
 
 }
+
+img{
+  position: relative;
+  left: 31%
+}
