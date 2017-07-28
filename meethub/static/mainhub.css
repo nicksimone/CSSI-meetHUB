@@ -4,10 +4,9 @@ body{
 h2{
   font-family: 'Bowlby One',cursive;
   text-decoration: underline;
-
 }
 
-.info{
+#info{
   background-color: white;
   border-radius: 40px;
   text-align: center;
