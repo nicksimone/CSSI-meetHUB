@@ -39,7 +39,7 @@ class MainHandler(webapp2.RequestHandler):
 
             if theUser != []:
                 enterHub = '/createpost'
-                self.response.write('<link rel="stylesheet" href="static/mainhub.css"></link><div id="homepage"><a href="%s">Sign out</a><br><a href="%s">EnterHUB</a></div>' % (users.create_logout_url('/'), enterHub))
+                self.response.write('<link rel="stylesheet" href="static/mainhub.css"></link><div id="homepage"><a href="%s">Sign out</a><br><br><a href="%s">EnterHUB</a></div>' % (users.create_logout_url('/'), enterHub))
                 #
                 #
                 # ''

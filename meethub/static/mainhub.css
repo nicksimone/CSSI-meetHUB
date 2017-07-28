@@ -21,7 +21,7 @@ h2{
 }
 
 .login{
-    font-family: 'Effects Eighty',monospace;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     text-align: center;
     padding: 15px;
@@ -40,6 +40,8 @@ h2{
   position: relative;
   left: 36%;
   padding: 15px;
+  border: 3px solid #ADD8E6;
+  font-size: 20px;
 }
 
 #button_ok{
@@ -73,7 +75,7 @@ button2{
 }
 
 #stuff{
-      font-family: 'Effects Eighty',monospace;
+      font-family: 'Montserrat', sans-serif;
       font-weight: bold;
       text-align: center;
       padding: 15px;
@@ -85,7 +87,7 @@ button2{
 }
 
 #thanks{
-  font-family: 'Effects Eighty',monospace;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   text-align: center;
   padding: 15px;
